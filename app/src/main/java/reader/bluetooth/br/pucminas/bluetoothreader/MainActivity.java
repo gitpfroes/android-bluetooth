@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter aAdapter;
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private TextView dataSent;
+    private Bluetooth bluetooth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Address: "+address, Toast.LENGTH_SHORT).show();
 
                 try {
-                    Bluetooth bluetooth = new Bluetooth();
+                    bluetooth = new Bluetooth();
                     bluetooth.openDeviceConnection(device);
                     bluetooth.beginListenForData(dataSent);
                 } catch (IOException e) {
@@ -47,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        bluetooth.close();
     }
 
     public void getListaDispositivosPareados(View v) {

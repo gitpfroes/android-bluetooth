@@ -64,6 +64,13 @@ public class Bluetooth {
         return UUID.fromString(UUID_SERIAL_PORT_PROFILE);
     }
 
+    public void close(){
+        try {
+            mSocket.close();
+        } catch (IOException e) {
+        }
+    }
+
     public void beginListenForData(TextView reference) {
         try {
             dataSent = reference;
