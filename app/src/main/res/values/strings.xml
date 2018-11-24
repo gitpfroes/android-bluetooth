@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bluetooth Reader</string>
+    <string name="btn_paired_devices">Lista Dispositivos Pareados</string>
+    <string name="txt_viewdata">Dados recebidos...</string>
+</resources>
