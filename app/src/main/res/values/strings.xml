@@ -2,4 +2,9 @@
     <string name="app_name">Bluetooth Reader</string>
     <string name="btn_paired_devices">Lista Dispositivos Pareados</string>
     <string name="txt_viewdata">Dados recebidos...</string>
+    <string name="eixo_x">X</string>
+    <string name="valor">Valor</string>
+    <string name="eixo_y">Y</string>
+    <string name="eixo_z">Z</string>
+    <string name="btn_atualizar">Atualizar</string>
 </resources>

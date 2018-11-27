@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CoordinatesActivity">
+
+    <TextView
+        android:id="@+id/txt-x"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="51dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/eixo_x"
+        app:layout_constraintBottom_toTopOf="@+id/txt-y"
+        app:layout_constraintEnd_toStartOf="@+id/edt-x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt-x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="85dp"
+        android:layout_marginTop="71dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt-x"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt-y"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="53dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/eixo_y"
+        app:layout_constraintBottom_toTopOf="@+id/txt-z"
+        app:layout_constraintEnd_toStartOf="@+id/edt-y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt-x" />
+
+    <EditText
+        android:id="@+id/edt-y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt-y"
+        app:layout_constraintTop_toTopOf="@+id/txt-y" />
+
+    <TextView
+        android:id="@+id/txt-z"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="237dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/eixo_z"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edt-z"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt-y" />
+
+    <EditText
+        android:id="@+id/edt-z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt-z"
+        app:layout_constraintTop_toTopOf="@+id/txt-z" />
+
+    <Button
+        android:id="@+id/btn-refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="atualizar"
+        android:text="@string/btn_atualizar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+</android.support.constraint.ConstraintLayout>

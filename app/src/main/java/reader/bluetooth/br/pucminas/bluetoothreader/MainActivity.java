@@ -2,16 +2,15 @@ package reader.bluetooth.br.pucminas.bluetoothreader;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -20,15 +19,14 @@ public class MainActivity extends AppCompatActivity {
     private ListView lstvw;
     private ArrayAdapter aAdapter;
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-    private TextView dataSent;
-    private Bluetooth bluetooth;
+
+    public static final String BLUETOOTH_MESSAGE = "XYZ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lstvw = (ListView) findViewById(R.id.deviceList);
-        dataSent = (TextView) findViewById(R.id.txt_view_result);
 
         //Define metodo para selecao de item pareado
         lstvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -36,24 +34,18 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView <?> parent, View view, int position, long id) {
                 String bluetoothDevice = (String) aAdapter.getItem(position);
                 String address = bluetoothDevice.substring( bluetoothDevice.indexOf("MAC Address: ")+13 );
-                BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-                Toast.makeText(MainActivity.this, "Address: "+address, Toast.LENGTH_SHORT).show();
 
-                try {
-                    bluetooth = new Bluetooth();
-                    bluetooth.openDeviceConnection(device);
-                    bluetooth.beginListenForData(dataSent);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Toast.makeText(MainActivity.this, "Address: "+address, Toast.LENGTH_SHORT).show();
+                startActivity(address);
             }
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        bluetooth.close();
+    private void startActivity(String address){
+        Intent intent = new Intent(this, CoordinatesActivity.class);
+        String message = address;
+        intent.putExtra(BLUETOOTH_MESSAGE, message);
+        startActivity(intent);
     }
 
     public void getListaDispositivosPareados(View v) {
